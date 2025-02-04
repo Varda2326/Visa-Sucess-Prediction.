@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+    <title>Visa Interview Questions</title>
+    <script>
+        function showVisaSpecificQuestions() {
+            let visaType = document.getElementById("visaType").value;
+            document.getElementById("H1B_questions").style.display = (visaType === "H1B") ? "block" : "none";
+            document.getElementById("UK_questions").style.display = (visaType === "UK Skilled Worker") ? "block" : "none";
+            document.getElementById("Germany_questions").style.display = (visaType === "Germany Work Visa") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Visa Interview Questions</h1>
+        <form action="/predict" method="post">
+
+            <!-- Visa Type Selection -->
+            <label for="visaType">Select Visa Type:</label>
+            <select id="visaType" name="visaType" onchange="showVisaSpecificQuestions()" required>
+                <option>--Select Visa Type--</option>
+                <option value="0">H1B</option>
+                <option value="1">UK Skilled Worker</option>
+                <option value="2">Germany Work Visa</option>
+            </select>
+
+            <!-- General Questions for All Visa Types -->
+            <label for="purpose">1. What is the primary purpose of your trip to [Country]?</label>
+            <select name="purpose" required>
+                <option value="0">Employment</option>
+                <option value="1">Higher Education</option>
+                <option value="2">Business Conference</option>
+                <option value="3">Leisure</option>
+                <option value="4">Family Visit</option>
+            </select>
+
+            <label for="job_offer">2. Have you received a job offer from a company in [Country]? If so, can you provide details?</label>
+            <select name="job_offer" required>
+                <option value="0">Yes, full offer</option>
+                <option value="1">Yes, verbal offer</option>
+                <option value="2">No, but actively applying</option>
+                <option value="3">Seeking opportunities independently</option>
+            </select>
+
+            <label for="salary">3. What is your salary for the position you are applying for?</label>
+            <select name="salary" required>
+                <option value="0">Competitive for role</option>
+                <option value="1">Reflects experience</option>
+                <option value="2">Below typical range</option>
+                <option value="3">Not employment-based</option>
+            </select>
+
+            <label for="passport_validity">4. Do you have a valid passport, and when does it expire?</label>
+            <select name="passport_validity" required>
+                <option value="0">Valid for another period</option>
+                <option value="1">Valid, but renew soon</option>
+                <option value="2">In process of obtaining</option>
+                <option value="3">No passport currently</option>
+            </select>
+
+            <label for="education_level">5. What is your highest level of education?</label>
+            <select name="education_level" required>
+                <option value="0">Ph.D.</option>
+                <option value="1">Master's degree</option>
+                <option value="2">Bachelor’s degree</option>
+                <option value="3">Diploma</option>
+                <option value="4">High school</option>
+            </select>
+
+            <label for="experience">6. How many years of professional experience do you have in your field?</label>
+            <select name="experience" required>
+                <option value="0">10+ years</option>
+                <option value="1">5-9 years</option>
+                <option value="2">1-4 years</option>
+                <option value="3">Recent graduate with internships</option>
+                <option value="4">No formal experience</option>
+            </select>
+
+            <label for="shortage_occupation">7. Is your job on the shortage occupation list for [Country]?</label>
+            <select name="shortage_occupation" required>
+                <option value="0">Yes, on the list</option>
+                <option value="1">No, but skilled</option>
+                <option value="2">Unsure, will check</option>
+                <option value="3">Not applicable</option>
+            </select>
+
+            <label for="family_in_country">8. Do you have any family members currently residing in [Country]?</label>
+            <select name="family_in_country" required>
+                <option value="0">Spouse and children</option>
+                <option value="1">Siblings</option>
+                <option value="2">No family in [Country]</option>
+                <option value="3">Prefer not to discuss</option>
+            </select>
+
+            <label for="international_travel">9. Have you traveled internationally before? If so, where?</label>
+            <select name="international_travel" required>
+                <option value="0">Traveled to several countries</option>
+                <option value="1">Visited for both leisure and work</option>
+                <option value="2">Not traveled internationally</option>
+                <option value="3">Lived abroad for a period</option>
+            </select>
+
+            <label for="criminal_record">10. Do you have a criminal record? If yes, please explain.</label>
+            <select name="criminal_record" required>
+                <option value="0">No record</option>
+                <option value="1">Minor offense, resolved</option>
+                <option value="2">Record, but rehabilitated</option>
+                <option value="3">Prefer not to disclose</option>
+            </select>
+
+            <label for="financial_support">11. How do you plan to support yourself financially while in [Country]?</label>
+            <select name="financial_support" required>
+                <option value="0">Employed and earning salary</option>
+                <option value="1">Savings</option>
+                <option value="2">Family support</option>
+                <option value="3">Plan to find part-time work</option>
+            </select>
+
+            <label for="cultural_awareness">12. Are you familiar with the cultural and social norms of [Country]?</label>
+            <select name="cultural_awareness" required>
+                <option value="0">Researched and have guidance</option>
+                <option value="1">Some knowledge from media</option>
+                <option value="2">Not very familiar but open</option>
+                <option value="3">Attended workshops</option>
+            </select>
+
+            <label for="career_goals">13. What are your long-term career goals?</label>
+            <select name="career_goals" required>
+                <option value="0">Advance to managerial position</option>
+                <option value="1">Specialize and innovate</option>
+                <option value="2">Gain experience, return home</option>
+                <option value="3">Continue growing within company</option>
+            </select>
+
+            <label for="job_skills">14. What skills do you possess that make you a good fit for the job in [Country]?</label>
+            <select name="job_skills" required>
+                <option value="0">Technical skills and problem-solving</option>
+                <option value="1">Leadership and team management</option>
+                <option value="2">Adaptable and quick learner</option>
+                <option value="3">Communication skills in diverse teams</option>
+            </select>
+
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

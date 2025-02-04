@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Visa Prediction - Basic Info</title>
+
+    <h1 id="h2">Predict your future with us</h1>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="https://videos.pexels.com/video-files/3042099/3042099-hd_1920_1080_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Content Overlay -->
+    <div class="content">
+        <h1 id="fh1">Visa Success Prediction</h1>
+        <form action="/interview_questions" method="get" id="f">
+            <button id="b" type="submit">Start Prediction</button>
+        </form>
+    </div>
+    
+</body>
+</html>

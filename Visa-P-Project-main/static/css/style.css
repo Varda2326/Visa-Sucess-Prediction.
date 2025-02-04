@@ -1,0 +1,84 @@
+/* Fullscreen background video */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire screen */
+    z-index: -1; /* Puts the video behind the content */
+}
+
+/* Basic body and content styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Playfair Display', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+#h2 {
+    position: absolute; /* Position it absolutely */
+    top: 70px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /*Center alignment */
+    z-index: 2; /* Above video and other content */
+    font-size: 2.2rem; /* Adjust font size as needed */
+    color: #e0f2ff; /* Color for visibility */
+}
+
+.content {
+    text-align: center;
+    z-index: 1; /* Places content above the video */
+    background-color: rgba(0, 0, 0, 0.5); /* Adds a semi-transparent background for readability */
+    padding: 3rem;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+#fh1 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #e0f2ff;
+}
+
+#f {
+    margin-top: 1rem;
+}
+
+#b {
+    background-color: #e0f2ff;
+    color: #00457c;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#b:hover {
+    background-color: #00457c;
+    color: #fff;
+}
+
+body.fade-out {
+    opacity: 0; /* Fade out effect */
+}
+
+/* Responsive styling */
+@media (max-width: 600px) {
+    #fh1 {
+        font-size: 2rem;
+    }
+
+    #b {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}

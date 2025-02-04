@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+    <title>Results</title>
+</head>
+<body>
+    <video autoplay muted loop id="background-video2">
+        <source src="https://videos.pexels.com/video-files/854151/854151-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="container">
+        <h1>Visa Prediction Results</h1>
+        <p>Your Visa {{ result }} Probability: {{ prediction_prob }}%</p>
+        <a href="/improvements">See Improvement Suggestions</a>
+    </div>
+</body>
+</html>
